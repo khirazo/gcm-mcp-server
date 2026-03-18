@@ -1,0 +1,24 @@
+# This file includes AI-generated code - Review and modify as needed
+
+# MCP Server Core
+mcp>=1.0.0
+fastmcp>=0.1.0
+
+# Web Framework
+starlette>=0.27.0
+uvicorn[standard]>=0.23.0
+fastapi>=0.104.0
+
+# HTTP Client
+requests>=2.31.0
+urllib3>=2.0.0
+
+# Authentication
+beautifulsoup4>=4.12.0
+
+# Configuration
+python-dotenv>=1.0.0
+tomli>=2.0.1; python_version < '3.11'
+
+# Data Validation
+pydantic>=2.0.0

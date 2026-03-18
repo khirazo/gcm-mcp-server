@@ -15,7 +15,20 @@ load_dotenv()
 
 GCM_HOST = os.environ.get('GCM_HOST', 'localhost')
 GCM_API_PORT = int(os.environ.get('GCM_API_PORT', '31443'))
-GCM_KEYCLOAK_PORT = int(os.environ.get('GCM_KEYCLOAK_PORT', '30443'))
+
+# ==================== OIDC Provider (Keycloak) ====================
+
+# New: GCM_OIDC_* variables for separate OIDC provider host
+# Falls back to GCM_KEYCLOAK_* (deprecated) then GCM_HOST for backward compatibility
+GCM_OIDC_HOST = os.environ.get('GCM_OIDC_HOST') or \
+                os.environ.get('GCM_KEYCLOAK_HOST') or \
+                GCM_HOST
+
+GCM_OIDC_PORT = int(os.environ.get('GCM_OIDC_PORT') or \
+                    os.environ.get('GCM_KEYCLOAK_PORT', '30443'))
+
+# Deprecated: Use GCM_OIDC_* instead
+GCM_KEYCLOAK_PORT = GCM_OIDC_PORT  # Alias for backward compatibility
 
 # ==================== Authentication ====================
 

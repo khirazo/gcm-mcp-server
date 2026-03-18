@@ -30,20 +30,29 @@ class GCMClient:
         self,
         host: Optional[str] = None,
         api_port: Optional[int] = None,
-        keycloak_port: Optional[int] = None,
+        oidc_host: Optional[str] = None,
+        oidc_port: Optional[int] = None,
+        keycloak_port: Optional[int] = None,  # Deprecated: use oidc_port
         verify_ssl: Optional[bool] = None,
         timeout: int = 30,
     ):
         # Configuration from params or config module
         self.host = host or config.GCM_HOST
         self.api_port = api_port or config.GCM_API_PORT
-        self.keycloak_port = keycloak_port or config.GCM_KEYCLOAK_PORT
+        
+        # OIDC Provider configuration (supports separate host)
+        self.oidc_host = oidc_host or config.GCM_OIDC_HOST
+        self.oidc_port = oidc_port or keycloak_port or config.GCM_OIDC_PORT
+        
+        # Deprecated aliases for backward compatibility
+        self.keycloak_port = self.oidc_port
+        
         self.verify_ssl = verify_ssl if verify_ssl is not None else config.GCM_VERIFY_SSL
         self.timeout = timeout
 
         # URLs
         self.base_url = f"https://{self.host}:{self.api_port}"
-        self.keycloak_url = f"https://{self.host}:{self.keycloak_port}"
+        self.keycloak_url = f"https://{self.oidc_host}:{self.oidc_port}"
 
         # Session
         self.session = requests.Session()

@@ -2,14 +2,17 @@
 """GCM MCP Server — Token management (OAuth2/OIDC).
 
 Handles all authentication flows for IBM Guardium Cryptographic Manager:
-1. OAuth2 Direct Token (requires Keycloak client credentials)
+1. OAuth2 Direct Token (requires OIDC Provider client credentials)
 2. Browser-based OIDC (fallback, always works)
 
 Flow (per IBM docs):
-1. Get access token from OIDC Provider (Keycloak)
+1. Get access token from OIDC Provider (e.g., Keycloak)
 2. Authorize via /api/v2/authorization endpoint
 3. Use Bearer token for all API calls
 4. Refresh token before expiry
+
+Note: The OIDC Provider can be on a separate host from the GCM API server.
+Configure via GCM_OIDC_HOST and GCM_OIDC_PORT environment variables.
 """
 
 import base64
@@ -28,7 +31,11 @@ except ImportError:
 
 
 class GCMAuth:
-    """OAuth2/OIDC token management for GCM."""
+    """OAuth2/OIDC token management for GCM.
+    
+    Supports separate OIDC Provider host for flexible deployment scenarios
+    (e.g., OpenShift with external identity providers).
+    """
 
     def __init__(
         self,

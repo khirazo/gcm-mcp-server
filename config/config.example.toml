@@ -1,0 +1,52 @@
+# GCM MCP Server Configuration Template
+# Copy this file to config.toml and customize for your environment
+#
+# This configuration is optimized for stdio mode (laptop deployment with IBM Bob).
+# For SSE mode (remote access), uncomment the relevant sections below.
+
+[gcm]
+# GCM Server Configuration
+host = "gcm.example.com"
+api_port = 31443
+verify_ssl = false
+request_timeout = 30
+
+[gcm.oidc]
+# OIDC Provider Configuration (e.g., Keycloak)
+# If not specified, defaults to gcm.host
+# This allows GCM API and OIDC provider to be on different hosts (e.g., OpenShift)
+host = ""  # Optional: Set to separate OIDC host (e.g., "keycloak.example.com")
+port = 30443
+
+# Deprecated: Use [gcm.oidc] instead
+keycloak_port = 30443  # Kept for backward compatibility
+
+[gcm.auth]
+# Authentication Configuration
+# SECURITY: Always use environment variables for credentials (never commit them here)
+# Use .env file or environment variables: GCM_USERNAME, GCM_PASSWORD, GCM_CLIENT_SECRET
+username = ""  # Override with GCM_USERNAME environment variable (REQUIRED)
+password = ""  # Override with GCM_PASSWORD environment variable (REQUIRED)
+client_id = "gcmclient"
+client_secret = ""  # Override with GCM_CLIENT_SECRET environment variable (REQUIRED)
+auth_mode = "auto"  # "auto", "oauth2", or "browser"
+
+[mcp]
+# MCP Server Configuration
+# Default: stdio mode (for IBM Bob and local MCP clients)
+log_level = "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+
+# ============================================================
+# SSE Mode Configuration (Remote Access)
+# ============================================================
+# Uncomment the following lines if you need SSE mode instead of stdio:
+#
+# transport = "sse"
+# host = "0.0.0.0"
+# port = 8002
+# key_store_path = "/data/keys.json"
+#
+# [mcp.security]
+# # API Key Management (SSE mode only)
+# enable_api_key_auth = true
+# admin_allowed_ips = ["127.0.0.1", "::1", "172.17.0.1"]
