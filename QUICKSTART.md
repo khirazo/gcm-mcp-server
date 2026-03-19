@@ -57,9 +57,10 @@ gcm-mcp-server:stdio    979e8bcab458        241MB             0B
 Add the GCM MCP server to IBM Bob's configuration file.
 
 **Location of Bob's config file:**
-- **Windows**: `%APPDATA%\Code\User\globalStorage\ibm.ibm-bob\mcp_config.json`
-- **macOS**: `~/Library/Application Support/Code/User/globalStorage/ibm.ibm-bob/mcp_config.json`
-- **Linux**: `~/.config/Code/User/globalStorage/ibm.ibm-bob/mcp_config.json`
+
+- **Windows**: `%USERPROFILE%\.bob\settings\mcp_settings.json`
+- **macOS**: `~/.bob/settings/mcp_settings.json`
+- **Linux**: `~/.bob/settings/mcp_settings.json`
 
 **Configuration examples by platform:**
 
@@ -68,7 +69,7 @@ Add the GCM MCP server to IBM Bob's configuration file.
 ```json
 {
   "mcpServers": {
-    "gcm": {
+    "gcm-mcp-server": {
       "command": "docker",
       "args": [
         "compose",
@@ -95,7 +96,7 @@ If you're using Docker installed in WSL2 (not Docker Desktop), use this configur
 ```json
 {
   "mcpServers": {
-    "gcm": {
+    "gcm-mcp-server": {
       "command": "wsl",
       "args": [
         "-d",
@@ -132,7 +133,7 @@ Example output:
 ```json
 {
   "mcpServers": {
-    "gcm": {
+    "gcm-mcp-server": {
       "command": "wsl",
       "args": [
         "-d",
