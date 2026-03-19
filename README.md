@@ -23,6 +23,34 @@ This server provides MCP tools to interact with GCM APIs, supporting both **stdi
 - ✅ Lightweight and secure (process-level isolation)
 - ✅ Perfect for laptop/desktop use
 
+```mermaid
+flowchart LR
+  %% Layout direction: Left-to-Right
+  %% Left side: PC/Laptop subgraph
+  subgraph PC[PC / Laptop]
+    direction LR
+    BOB[IBM Bob]
+    MCP[MCP Container]
+    CFG["Configuration<br/>(GCM Credentials)"]
+    BOB -- "stdio" --> MCP
+
+    %% MCP uses local configuration (credentials)
+    MCP -. "uses" .- CFG
+  end
+
+  %% Right side: GCM
+  GCM[GCM]
+  MCP ==>|"TLS (Authorized Access Token from OIDC)"| GCM
+
+  %% Optional styling
+  classDef host fill:#0b5d7a,stroke:#0b5d7a,color:#ffffff;
+  classDef store fill:#ffffff,stroke:#ff7f50,color:#ff7f50,stroke-width:2px;
+  classDef default fill:#ffffff,stroke:#999999,color:#333333;
+
+  class BOB,MCP,GCM host
+  class CFG store
+```
+
 ---
 
 ## Architecture (SSE)
