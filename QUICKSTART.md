@@ -15,7 +15,7 @@ This guide helps you set up GCM MCP Server on your laptop for use with IBM Bob M
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-org/gcm-mcp-server.git
+git clone https://github.com/khirazo/gcm-mcp-server.git
 cd gcm-mcp-server
 
 # Copy environment template
