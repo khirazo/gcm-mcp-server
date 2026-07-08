@@ -1,5 +1,11 @@
 # Authentication Guide
 
+> ⚠️ **Deprecated — Not required for GCM 2.0.2 and later**
+>
+> GCM 2.0.2+ includes a built-in MCP server with its own authentication. This relay server and the authentication described here are only needed for GCM versions older than 2.0.2.
+>
+> **If you are on GCM 2.0.2 or later, see [gcm-api-samples/mcp_bob](https://github.com/IBM/gcm-api-samples/tree/main/mcp_bob) to connect Bob IDE directly to GCM using a GCM-issued API key.**
+
 ## Overview
 
 The GCM MCP Server implements a **two-layer authentication architecture** to secure both client connections and upstream GCM API access.
