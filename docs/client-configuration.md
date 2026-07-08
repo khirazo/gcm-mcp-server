@@ -1,5 +1,11 @@
 # MCP Client Configuration Guide
 
+> ⚠️ **Deprecated — Not required for GCM 2.0.2 and later**
+>
+> GCM 2.0.2+ includes a built-in MCP server. This relay server and its API key management are only needed for GCM versions older than 2.0.2.
+>
+> **If you are on GCM 2.0.2 or later, see [gcm-api-samples/mcp_bob](https://github.com/IBM/gcm-api-samples/tree/main/mcp_bob) to connect Bob IDE directly to GCM.**
+
 This guide provides configuration examples for connecting various MCP clients to the GCM MCP Server using API key authentication.
 
 ## Table of Contents

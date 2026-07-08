@@ -1,5 +1,11 @@
 # Quick Start - Laptop Deployment with IBM Bob
 
+> ⚠️ **Deprecated — Not required for GCM 2.0.2 and later**
+>
+> GCM 2.0.2+ includes a built-in MCP server. This relay setup is only needed for GCM versions older than 2.0.2.
+>
+> **If you are on GCM 2.0.2 or later, see [gcm-api-samples/mcp_bob](https://github.com/IBM/gcm-api-samples/tree/main/mcp_bob) for a simpler direct-connection setup.**
+
 This guide helps you set up GCM MCP Server on your laptop for use with IBM Bob MCP client via stdio connection.
 
 ## 📋 Prerequisites

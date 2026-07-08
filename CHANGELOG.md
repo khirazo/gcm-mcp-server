@@ -4,6 +4,18 @@ All notable changes to the GCM MCP Server core functionality.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [Deprecation Notice]
+
+**This repository is deprecated for GCM 2.0.2 and later.**
+
+GCM 2.0.2+ ships with a built-in MCP server endpoint (`/ibm/mcp/mcp`) that supports the Streamable HTTP transport and API key authentication. The relay server provided by this repository is no longer needed for those environments.
+
+**Recommended migration path for GCM 2.0.2+:** Follow the [gcm-api-samples/mcp_bob](https://github.com/IBM/gcm-api-samples/tree/main/mcp_bob) setup guide to connect Bob IDE (v2) directly to GCM using a GCM-issued API key. No Docker container or separate relay process is required.
+
+This repository remains available for users running **GCM versions older than 2.0.2** where the built-in MCP server is not yet available.
+
+---
+
 ## [Unreleased]
 
 ### Added

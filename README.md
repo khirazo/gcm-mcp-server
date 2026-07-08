@@ -1,5 +1,16 @@
 # GCM MCP Server
 
+> ⚠️ **Deprecated — Not required for GCM 2.0.2 and later**
+>
+> GCM 2.0.2+ ships with a built-in MCP server. You no longer need to deploy this relay server separately.
+>
+> **If you are on GCM 2.0.2 or later, follow the [gcm-api-samples/mcp_bob](https://github.com/IBM/gcm-api-samples/tree/main/mcp_bob) guide to connect Bob IDE directly to GCM.**
+> All you need is the public URL of your GCM instance and a GCM API key.
+>
+> This repository is only needed for **GCM versions older than 2.0.2**.
+
+---
+
 **Model Context Protocol (MCP) server for Guardium Cryptography Manager (GCM).**
 
 This server provides MCP tools to interact with GCM APIs, supporting both **stdio** (local) and **SSE** (remote) transport modes.
